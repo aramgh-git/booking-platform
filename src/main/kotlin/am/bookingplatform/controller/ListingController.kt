@@ -32,6 +32,7 @@ class ListingController(private val repository: ListingRepository) {
     @ResponseStatus(HttpStatus.CREATED)
     fun create(@RequestBody request: CreateListingRequest): ListingResponse {
         val listing = Listing(
+            id = UUID.randomUUID(),
             title = request.title,
             city = request.city,
             pricePerNight = request.pricePerNight,

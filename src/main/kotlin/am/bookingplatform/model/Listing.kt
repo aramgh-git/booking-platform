@@ -11,7 +11,7 @@ import java.util.UUID
 data class Listing(
 
     @Id
-    val id: UUID = UUID.randomUUID(),
+    val id: UUID,
 
     @Column(nullable = false)
     val title: String,
