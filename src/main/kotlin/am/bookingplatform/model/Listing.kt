@@ -11,18 +11,18 @@ import java.util.UUID
 data class Listing(
 
     @Id
-    val id: UUID,
+    var id: UUID,
 
     @Column(nullable = false)
-    val title: String,
+    var title: String,
 
     @Column(nullable = false)
-    val city: String,
+    var city: String,
 
     @Column(nullable = false)
-    val pricePerNight: Double,
+    var pricePerNight: Double,
 
     @Column(nullable = false)
-    val maxGuests: Int
+    var maxGuests: Int
 )
 // kotlin("plugin.jpa") generates the no-arg constructor JPA needs - no manual one required.
