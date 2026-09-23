@@ -23,8 +23,8 @@ class ListingController(private val repository: ListingRepository) {
     fun getAll(): List<ListingResponse> = repository.findAll().map { ListingResponse.from(it) }
 
     @GetMapping("/{id}")
-    fun getById(@PathVariable id: UUID): ResponseEntity<ListingResponse> {
-        val listing = repository.findById(id) ?: return ResponseEntity.notFound().build()
+    fun getById(@PathVariable("id") id: UUID): ResponseEntity<ListingResponse> {
+        val listing = repository.findById(id).orElse(null) ?: return ResponseEntity.notFound().build()
         return ResponseEntity.ok(ListingResponse.from(listing))
     }
 
